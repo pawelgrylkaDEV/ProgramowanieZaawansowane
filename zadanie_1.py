@@ -1,16 +1,33 @@
-# This is a sample Python script.
+import math
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+list_imiona = ["Anna", "Bartek", "Kasia", "Piotr"]
+list_oceny = [4.5, 3.0, 5.0, 4.0]
 
+polaczone_dane = list(zip(list_imiona, list_oceny))
+print(f"Polaczone dane (zip): {polaczone_dane}")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+print("-" * 30)
 
+print("Obliczanie pierwiastka kwadratowego (math.sqrt()):")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+try:
+    przykładowa_liczba_str = input("Podaj liczbe nieujemna do obliczenia pierwiastka: ")
+    przykładowa_liczba = float(przykładowa_liczba_str)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if przykładowa_liczba < 0:
+        raise ValueError("Nie mozna obliczyc pierwiastka kwadratowego z liczby ujemnej.")
+
+    wynik_pierwiastek = math.sqrt(przykładowa_liczba)
+
+    print(f"Pierwiastek kwadratowy z {przykładowa_liczba} wynosi: {wynik_pierwiastek}")
+
+except ValueError as e:
+    print(f"\nBlad (Wyjatek ValueError): {e}")
+    print("Upewnij sie, ze wprowadzasz poprawna liczbe nieujemna.")
+
+except KeyboardInterrupt:
+    print("\n\nOperacja przerwana przez uzytkownika.")
+
+finally:
+    print("-" * 30)
+    print("Koniec sekcji testowej modulu math i obslugi wyjatkow.")
